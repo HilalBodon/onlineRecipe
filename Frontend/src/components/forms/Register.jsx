@@ -55,7 +55,7 @@ const RegisterForm = ({ setShow }) => {
           setErrors(message);
         }
       } else {
-        // console.log('An unexpected error occurred:', error);
+        console.log('An unexpected error occurred:', error);
       }
     }
   }

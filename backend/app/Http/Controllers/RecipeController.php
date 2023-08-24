@@ -121,7 +121,15 @@ public function listComments(Recipe $recipe)
 {
     $comments = $recipe->comments()->with('user')->get();
 
-    return response()->json($comments);
+    $addCommentForm = [
+        'content' => '',
+    ];
+
+    return response()->json([
+        'comments' => $comments,
+        'add_comment_form' => $addCommentForm,
+    ]);
 }
+
 
 }

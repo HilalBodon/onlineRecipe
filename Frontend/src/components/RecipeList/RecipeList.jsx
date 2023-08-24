@@ -5,7 +5,7 @@ import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 're
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import LikeButton from './LikeButton/LikeButton';
-
+import RecipeDetails from '../Comment/RecipeDetails';
 function RecipeList() {
     const [recipes, setRecipes] = useState([]);
 
@@ -57,8 +57,9 @@ function RecipeList() {
                             <LikeButton
                             recipeId={recipe.id}
                             initialIsLiked={false}
-                            initialLikesCount={recipe.likes_count}
-    />                    </div>
+                            initialLikesCount={recipe.likes_count}/>
+                        </div>
+                        <RecipeDetails recipeId={recipe.id} />
                     </div>
                 )
                 )

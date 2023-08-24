@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import LikeButton from './LikeButton/LikeButton';
 
 function RecipeList() {
     const [recipes, setRecipes] = useState([]);
@@ -22,22 +23,7 @@ function RecipeList() {
     };
 
 
-    const handleLike = async (recipeId) => {
-        try {
-            const response = await axios.post(`http://localhost:8000/api/recipes/${recipeId}/like`);
-            if (response.status === 200) {
-                const updatedRecipes = recipes.map((recipe) => {
-                    if (recipe.id === recipeId) {
-                        return { ...recipe, likes: recipe.likes + 1 };
-                    }
-                    return recipe;
-                });
-                setRecipes(updatedRecipes);
-            }
-        } catch (error) {
-            console.error('Error liking recipe:', error);
-        }
-    };
+
     
 
     return (
@@ -68,12 +54,11 @@ function RecipeList() {
                                 </div>
                             </WhatsappShareButton>
                             </div>
-                            {/* <div className="like-button">
-                        <button onDoubleClick={() => handleLike(recipe.id)}>
-                            {recipe.likes} Likes
-                        </button>
-                    </div> */}
-                    </div>
+                            <LikeButton
+                            recipeId={recipe.id}
+                            initialIsLiked={false}
+                            initialLikesCount={recipe.likes_count}
+    />                    </div>
                     </div>
                 )
                 )

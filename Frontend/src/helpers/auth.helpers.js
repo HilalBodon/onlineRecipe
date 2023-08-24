@@ -2,12 +2,19 @@ import axios from 'axios';
 const baseUrl = 'http://127.0.0.1:8000/api/';
 
 const auth = () => {
-  const { token } = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
 
-  return {
-    headers: { Authorization: `Bearer ${token}` },
-  };
+  if (user && user.authorization && user.authorization.token) {
+    const headers = { Authorization: `Bearer ${user.authorization.token}` };
+    return { headers };
+  } else {
+    console.log('Token not found in local storage.');
+    return {};
+  }
 };
+
+
+
 
 
 async function register({ name, email, password }) {

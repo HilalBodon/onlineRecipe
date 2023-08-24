@@ -69,7 +69,4 @@ class User extends Authenticatable implements JWTSubject
     return $this->belongsToMany(Recipe::class, 'likes')->withTimestamps();
 }
 
-
-
-
 }

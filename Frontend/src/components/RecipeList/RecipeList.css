@@ -26,3 +26,24 @@
 .recipe-details {
     margin-top: 10px;
 }
+
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.SocialMediaShareButton {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.SocialMediaShareButton:not(:last-child) {
+    margin-right: 5px;
+}

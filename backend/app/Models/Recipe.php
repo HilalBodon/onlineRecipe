@@ -11,4 +11,12 @@ class Recipe extends Model
 
     protected $fillable = ['name', 'cuisine', 'ingredients', 'image'];
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+
 }
+
+

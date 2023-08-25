@@ -1,0 +1,86 @@
+ /* input{ 
+    height: 1.7rem;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: 1px solid cadetblue;
+    font-size: 18px;
+}
+.books_container{
+   margin: 0px;
+   padding: 0px;
+   display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+ .btn{
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 15px;  
+    font-weight: 600;
+    color: aliceblue;
+    background-color: cadetblue;
+
+ }
+ .btn:hover{
+    background-color:#6e3911;
+    transition: 0.7s;
+ }
+
+ .sel-style{
+   height: 1.7rem;
+   border-radius: 5px;
+   margin-right: 10px;
+   border: 1px solid cadetblue;
+   font-size: 18px;
+ }
+ .main-search{
+   background-color: rgb(240, 240, 240);
+   padding-bottom: 15px;
+ } */
+
+
+/* SearchForm.css */
+
+.search-form {
+   display: flex;
+   align-items: center;
+ }
+ 
+ .search-input {
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px 0 0 4px;
+   font-size: 14px;
+   outline: none;
+   flex: 1;
+   color: black;
+ }
+ .search-select{
+   padding: 10px;
+   margin-right: 5px;
+   border: 1px solid #ccc;
+   border-radius: 4px ;
+   font-size: 14px;
+   outline: none;
+   flex: 1;
+   color: darkgray;
+
+ }
+ 
+ .search-button {
+   background-color: #7ab1a0 !important;
+   color: #fff;
+   border: none;
+   border-radius: 0 4px 4px 0;
+   padding: 10px 20px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+ 
+ .search-button:hover {
+   background-color: #f09815;
+ }
+ 

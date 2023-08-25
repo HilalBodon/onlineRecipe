@@ -39,8 +39,8 @@ const SignInForm = ({ setShow }) => {
   return (
     <Modal
       setShow={setShow}
-      className=" dark:border dark:bg-slate-900 bg-white dark:text-slate-200 signIn-container text-white  text-lg   flex flex-col items-center gap-5 insta-border rounded-2xl " >
-      <div className=" dark:bg-slate-900 form-header gothic flex p-6 w-full rounded-t-2xl bg-cyan-dark ">
+      className="  bg-neutral-50 signIn-container  text-lg   flex flex-col items-center gap-5 insta-border rounded-2xl " >
+      <div className=" bg-emerald-600 text-white font-semibold form-header gothic flex p-6 w-full rounded-t-2xl  border ">
 
         Sign In
       </div>
@@ -67,7 +67,7 @@ const SignInForm = ({ setShow }) => {
       <div className=" monster flex  gap-3 w-full px-5 pb-5">
         <div
           onClick={() => handleSignIn()}
-          className="sign-in bg-insta-blue p-2 rounded text-center text-white  bg-cyan-dark  w-full cursor-pointer"
+          className="sign-in bg-insta-blue p-2 rounded text-center  bg-cyan-dark  w-full cursor-pointer"
         >
           Sign In
         </div>

@@ -6,8 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import LikeButton from './LikeButton/LikeButton';
 import RecipeDetails from '../Comment/RecipeDetails';
+import CommentsModal from '../Comment/CommentsModal';
+
+
 function RecipeList() {
     const [recipes, setRecipes] = useState([]);
+    const [selectedRecipeId, setSelectedRecipeId] = useState(null);
+    const [selectedRecipe, setSelectedRecipe] = useState(null); 
 
     useEffect(() => {
         fetchRecipes();
@@ -22,55 +27,67 @@ function RecipeList() {
         }
     };
 
-
+    const handleShowComments = (recipeId) => {
+        setSelectedRecipeId(recipeId);
+    };
 
     
+  const handleAddComment = newComment => {
+  };
+
 
     return (
         <div className="recipe-list">
-            <h1>Recipes</h1>
+            <h1 className='text-2xl italic'>Recipes</h1>
             <div className="recipe-cards">
                 {recipes.map(recipe => (
                     <div className="recipe-card" key={recipe.id}>
                         <img className="recipe-image" src={recipe.image} alt={recipe.name} />
                         <div className="recipe-details">
-                            <h2>{recipe.name}</h2>
-                            <p>Cuisine: {recipe.cuisine}</p>
-                            <p>Ingredients: {recipe.ingredients}</p>
+                            <h2 className='text-lg text-slate-700 italic te hover:text-orange-500 animate-pulse'>{recipe.name}</h2>
+                            {/* <p>Cuisine: {recipe.cuisine}</p>
+                            <p>Ingredients: {recipe.ingredients}</p> */}
                             <div className="social-buttons">
-                            <FacebookShareButton url={window.location.href}>
-                                <div className="SocialMediaShareButton">
-                                    <FontAwesomeIcon icon={faFacebook} />
-                                </div>
-                            </FacebookShareButton>
-                            <TwitterShareButton url={window.location.href}>
-                                <div className="SocialMediaShareButton">
-                                    <FontAwesomeIcon icon={faTwitter} />
-                                </div>
-                            </TwitterShareButton>
-                            <WhatsappShareButton url={window.location.href}>
-                                <div className="SocialMediaShareButton">
-                                    <FontAwesomeIcon icon={faWhatsapp} />
-                                </div>
-                            </WhatsappShareButton>
+                                <FacebookShareButton url={window.location.href}>
+                                    <div className="SocialMediaShareButton bg-blue-500">
+                                        <FontAwesomeIcon icon={faFacebook}className='text-2xl text-white' />
+                                    </div>
+                                </FacebookShareButton>
+                                <TwitterShareButton url={window.location.href}>
+                                    <div className="SocialMediaShareButton bg-white">
+                                        <FontAwesomeIcon icon={faTwitter} className='text-2xl text-blue-400'/>
+                                    </div>
+                                </TwitterShareButton>
+                                <WhatsappShareButton url={window.location.href} >
+                                    <div className="SocialMediaShareButton bg-green-500">
+                                        <FontAwesomeIcon icon={faWhatsapp} className='text-2xl text-white'/>
+                                    </div>
+                                </WhatsappShareButton>
                             </div>
-                            <LikeButton
-                            recipeId={recipe.id}
-                            initialIsLiked={false}
-                            initialLikesCount={recipe.likes_count}/>
+                            {/* <LikeButton
+                                recipeId={recipe.id}
+                                initialIsLiked={false}
+                                initialLikesCount={recipe.likes_count}
+                            />
+                              <button onClick={() => handleShowComments(recipe)}>Show Comments</button>
+
+                            <button onClick={() => handleShowComments(recipe.id)}>Show Comments</button>
                         </div>
-                        <RecipeDetails recipeId={recipe.id} />
+                        {selectedRecipeId === recipe.id && <RecipeDetails recipeId={recipe.id} />} */}
                     </div>
-                )
-                )
-                }
-           
-           </div>
+                    </div>
+                 ))}
+                     {/* {selectedRecipe && (
+        <CommentsModal
+          comments={selectedRecipe.comments}
+          onClose={() => setSelectedRecipe(null)}
+          onAddComment={handleAddComment}
+        />
+        
+      )} */}
+            </div>
         </div>
     );
 }
 
 export default RecipeList;
-
-
-
